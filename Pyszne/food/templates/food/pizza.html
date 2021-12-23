@@ -33,14 +33,14 @@
                             </label>
                     </div>
                         <div>
-                            <button class="btn-info mt-3">Dodaj do koszyka</button>
+                            <button class="btn-info mt-3" onclick="addPizza('{{ pizza.id }}')">Dodaj do koszyka</button>
                         </div>
 
                 </div>
                     {% endfor %}
             </div>
-            <div class="col-md-4 orders bg-info ">
-                <div class="bg-info p-4">
+            <div class="col-md-4 orders ">
+                <div class="bg-dark p-4 rounded text-light">
                     <h2 class="text-center">Lista zakupów</h2>
                     <ul id="pcart"> </ul>
                     <h4 class="text-center" id="ptotal">Razem: 0 zł</h4>
