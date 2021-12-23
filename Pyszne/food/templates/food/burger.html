@@ -1,6 +1,6 @@
 {% extends 'food/base.html' %}
 
-{% block title %}Pizza{% endblock %}
+{% block title %}Burger{% endblock %}
 
 {% block content %}
 
@@ -8,25 +8,25 @@
 
         <div class="row text-center">
             <div class="coll-md-8">
-                <h2 class="title">Dostępne Pizze</h2>
+                <h2 class="title">Dostępne Burgery</h2>
                 <div class="row">
-                    {% for Pizza in pizze %}
+                    {% for Burger in burgery %}
                     <div class="col-md-6 p-4">
-                        <img class="picture" src="{{ Pizza.pimage }}">
-                        <h4 class="pt-3" id="piz{{pizza.id}}">{{ Pizza.name }}</h4>
+                        <img class="picture" src="{{ Burger.bimage }}">
+                        <h4 class="pt-3" id="bur{{ burger.id }}">{{ Burger.name }}</h4>
                         <div class="form-check-inline">
                             <label class="form-check-label">
 
-                                <input class="form-check-label" type="radio" name="pizza{{pizza.id}}" value="{{ Pizza.priceMedium}}">
-                                {{ Pizza.priceMedium}} $
+                                <input class="form-check-input" name="burger{{ burger.id }}" type="radio" value="{{ Burger.priceMedium}}" checked>
+                                {{ Burger.priceMedium}} $
 
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
 
-                                <input class="form-check-label" type="radio" value="{{ Pizza.priceLarge}}" name="pizza{{pizza.id}}">
-                                {{ Pizza.priceLarge}} $
+
+
 
                             </label>
                     </div>
@@ -37,10 +37,7 @@
                 </div>
                     {% endfor %}
             </div>
-            <div class="col-md-4 orders">
-                <h2 class="text-center">Lista zakupów</h2>
-                <ul></ul>
-                <h4>Razem: 0 $</h4>
+            <div class="col-md-4">
 
             </div>
         </div>

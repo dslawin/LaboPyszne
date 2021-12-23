@@ -6,5 +6,5 @@ app_name = 'food'
 
 urlpatterns = [
     path('pizza', views.pizza,name='pizza'),
-    path('burgery', views.burgery,name='burgery'),
+    path('burger', views.burger,name='burger'),
 ]
