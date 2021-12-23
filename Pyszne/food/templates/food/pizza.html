@@ -1,9 +1,45 @@
 {% extends 'food/base.html' %}
-{% block title %}Restauracje{% endblock %}
+
+{% block title %}Pizza{% endblock %}
 
 {% block content %}
-    <h1>Witamy na Jedzenie.pl</h1>
-    <div id="'test"></div>
 
+    <div class="container-fluid">
 
+        <div class="row text-center">
+            <div class="coll-md-8">
+                <h2 class="title">Dostępne Pizze</h2>
+                <div class="row">
+                    {% for Pizza in pizze %}
+                    <div class="col-md-6 p-4">
+                        <img class="picture" src="{{ Pizza.pimage }}">
+                        <h4 class="pt-3">{{ Pizza.name }}</h4>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+
+                                <input class="form-check-label" type="radio" checked>
+                                {{ Pizza.priceMedium}} $
+
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+
+                                <input class="form-check-label" type="radio">
+                                {{ Pizza.priceLarge}} $
+
+                            </label>
+                    </div>
+                        <div>
+                            <button class="btn-info mt-3">Dodaj do koszyka</button>
+                        </div>
+
+                </div>
+                    {% endfor %}
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
 {% endblock %}

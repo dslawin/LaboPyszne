@@ -14,3 +14,16 @@
     z-index: -1;
 
 }
+
+.title{
+    margin: 50px;
+    text-align: center;
+}
+
+.picture{
+    width: 300px;
+    border-radius: 50%;
+    height: 200px;
+
+}
+
