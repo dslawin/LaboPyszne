@@ -19,9 +19,18 @@ function addPizza(pid){
     }
     var orders = JSON.parse(localStorage.getItem('orders'));
     var total = localStorage.getItem('total');
+    var cartSize = orders.length;
 
-
+    orders[cartSize]= [name,size,price]
+    localStorage.setItem('orders', JSON.stringify(orders));
     total = Number(total) + Number(price);
+    localStorage.setItem('total', total);
+
+
+    var cart = document.querySelector("#cart");
+    cart.innerHTML = orders.length;
+
+
     ptotal.innerHTML = 'Razem: ' + total + ' zł';
     pcart.innerHTML += '<li>'+ name + ' ' + size + ': ' + price +' zł</li>';
 }
