@@ -1,6 +1,6 @@
 var hours = 24;
 var now = new Date().getTime();
-var stepTime = localStorage.getitem('stepTime');
+var stepTime = localStorage.getItem('stepTime');
 
 if(stepTime == null){
     localStorage.setItem('stepTime',now);
@@ -16,7 +16,7 @@ var orders = JSON.parse(localStorage.getItem('orders'));
 var total = localStorage.getItem('total');
 
 if (orders === null || orders === undefined){
-    localStorage.setitem('orders', JSON.stringify([]));
+    localStorage.setItem('orders', JSON.stringify([]));
     orders = JSON.parse(localStorage.getItem('orders'));
 }
 
