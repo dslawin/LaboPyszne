@@ -1,20 +1,17 @@
-var pcart = document.querySelector('#pcart');
-var ptotal= document.querySelector('#ptotal');
+var bcart = document.querySelector('#bcart');
+var btotal= document.querySelector('#btotal');
 
-function addPizza(pid){
-    pizzaId = '#piz' + pid;
-    var name = document.querySelector(pizzaId).innerHTML;
-    var radio ='pizza' + pid;
+function addBurger(bid){
+    burgerId = '#bur' + bid;
+    var name = document.querySelector(burgerId).innerHTML;
+    var radio ='burger' + bid;
     var pri = document.getElementsByName(radio);
     var size, price;
     if(pri[0].checked){
         price = pri[0].value;
         size = 'Średnia';
     }
-    else{
-        price = pri[1].value;
-        size= 'Duża';
-    }
+
     var orders = JSON.parse(localStorage.getItem('orders'));
     var total = localStorage.getItem('total');
     var cartSize = orders.length;
@@ -29,18 +26,18 @@ function addPizza(pid){
     cart.innerHTML = orders.length;
 
 
-    ptotal.innerHTML = 'Razem: ' + total + ' zł';
-    pcart.innerHTML += '<li>'+ name + ' ' + size + ': ' + price +' zł</li>';
+    btotal.innerHTML = 'Razem: ' + total + ' zł';
+    bcart.innerHTML += '<li>'+ name + ' ' + size + ': ' + price +' zł</li>';
 }
 
-function pshoppingCart(){
+function bshoppingCart(){
     var orders = JSON.parse(localStorage.getItem('orders'));
     var total = localStorage.getItem('total');
     var cartSize = orders.length;
-    pcart.innerHTML = '';
+    bcart.innerHTML = '';
     for ( let i=0; i < cartSize; i++){
-        pcart.innerHTML += '<li>' + orders[i][0] + orders[i][1] + ': ' + orders[i][2] + ' zł</li>';
+        bcart.innerHTML += '<li>' + orders[i][0] + orders[i][1] + ': ' + orders[i][2] + ' zł</li>';
     }
-    ptotal.innerHTML = 'Razem: ' + total + ' zł';
+    btotal.innerHTML = 'Razem: ' + total + ' zł';
 }
-pshoppingCart();
+bshoppingCart();

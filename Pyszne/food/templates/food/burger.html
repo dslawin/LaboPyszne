@@ -1,5 +1,7 @@
 {% extends 'food/base.html' %}
 
+{% load static %}
+
 {% block title %}Burger{% endblock %}
 
 {% block content %}
@@ -7,41 +9,37 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="coll-md-8 text-center">
+            <div class="coll-md-8 test-center">
                 <h2 class="title">Dostępne Burgery</h2>
                 <div class="row">
                     {% for Burger in burgery %}
-                    <div class="col-md-4 p-4 prod">
+                    <div class="col-md-6 col-sm-6 p-4">
                         <img class="picture" src="{{ Burger.bimage }}">
-                        <h4 class="pt-3" id="bur{{ burger.id }}">{{ Burger.name }}</h4>
+                        <h4 class="pt-3" id="bur{{Burger.id}}">{{ Burger.name }}</h4>
                         <div class="form-check-inline">
                             <label class="form-check-label">
 
-                                <input class="form-check-input" name="burger{{ burger.id }}" type="radio" value="{{ Burger.priceMedium}}" checked>
-                                {{ Burger.priceMedium}} zł
+                                <input class="form-check-label" type="radio" name="burger{{Burger.id}}" value="{{ Burger.priceMedium}}">
+                               Normalny: {{ Burger.priceMedium}} zł
 
                             </label>
                         </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
 
-
-
-
-                            </label>
-                    </div>
                         <div>
-                            <button class="btn-info mt-3">Dodaj do koszyka</button>
+                            <button class="btn-info mt-3" onclick="addBurger('{{ Burger.id }}')">Dodaj do koszyka</button>
                         </div>
 
                 </div>
                     {% endfor %}
             </div>
-            <div class="col-md-4 orders">
-                <h2 class="text-center">Lista zakupów</h2>
-                <ul></ul>
-                <h4 class="text-center">Razem: 0 zł</h4>
+            <div class="col-md-4 orders ">
+                <div class="bg-dark p-4 rounded text-light">
+                    <h2 class="text-center">Lista zakupów</h2>
+                    <ul id="bcart"> </ul>
+                    <h4 class="text-center" id="btotal">Razem: 0 zł</h4>
+
+                </div>
             </div>
-        </div>
     </div>
+    <script src="{% static 'food/js/borders.js' %}"></script>
 {% endblock %}
