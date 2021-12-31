@@ -25,9 +25,11 @@ function addBurger(bid){
     var cart = document.querySelector("#cart");
     cart.innerHTML = orders.length;
 
+    butto = '<button onclick="removeBurger(' + cartSize + ')">Usuń</div>';
+
 
     btotal.innerHTML = 'Razem: ' + total + ' zł';
-    bcart.innerHTML += '<li>'+ name + ' ' + size + ': ' + price +' zł</li>';
+    bcart.innerHTML += '<li>'+ name + ' ' + size + ': ' + price +' zł' + butto + '</li>';
 }
 
 function bshoppingCart(){
@@ -36,8 +38,21 @@ function bshoppingCart(){
     var cartSize = orders.length;
     bcart.innerHTML = '';
     for ( let i=0; i < cartSize; i++){
-        bcart.innerHTML += '<li>' + orders[i][0] + orders[i][1] + ': ' + orders[i][2] + ' zł</li>';
+        butto = '<button onclick="removeBurger(' + i + ')">Usuń</button>';
+        bcart.innerHTML += '<li>' + orders[i][0] + orders[i][1] + ': ' + orders[i][2] + ' zł' + butto + '</li>';
     }
     btotal.innerHTML = 'Razem: ' + total + ' zł';
 }
 bshoppingCart();
+
+function removeBurger(n) {
+    var orders = JSON.parse(localStorage.getItem('orders'));
+    var total = localStorage.getItem('total');
+    total = Number(total) - orders[n][2];
+    orders.splice(n, 1);
+    var cart = document.querySelector("#cart");
+    cart.innerHTML = orders.length;
+    localStorage.setItem('orders', JSON.stringify(orders));
+    localStorage.setItem('total', total);
+    bshoppingCart();
+}

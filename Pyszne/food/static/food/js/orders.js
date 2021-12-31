@@ -28,9 +28,9 @@ function addPizza(pid){
     var cart = document.querySelector("#cart");
     cart.innerHTML = orders.length;
 
-
+    butto = '<button onclick="removePizza(' + cartSize + ')">Usuń</button>';
     ptotal.innerHTML = 'Razem: ' + total + ' zł';
-    pcart.innerHTML += '<li>'+ name + ' ' + size + ': ' + price +' zł</li>';
+    pcart.innerHTML += '<li>'+ name + ' ' + size + ': ' + price + ' zł' + butto + '</li>';
 }
 
 function pshoppingCart(){
@@ -39,8 +39,22 @@ function pshoppingCart(){
     var cartSize = orders.length;
     pcart.innerHTML = '';
     for ( let i=0; i < cartSize; i++){
-        pcart.innerHTML += '<li>' + orders[i][0] + orders[i][1] + ': ' + orders[i][2] + ' zł</li>';
+        butto = '<button onclick="removePizza(' + i + ')">Usuń</button>';
+        pcart.innerHTML += '<li>' + orders[i][0] + orders[i][1] + ': ' + orders[i][2] + ' zł' + butto + '</li>';
+
     }
     ptotal.innerHTML = 'Razem: ' + total + ' zł';
 }
 pshoppingCart();
+
+function removePizza(n){
+    var orders = JSON.parse(localStorage.getItem('orders'));
+    var total = localStorage.getItem('total');
+    total = Number(total) - orders[n][2];
+    orders.splice(n,1);
+    var cart = document.querySelector("#cart");
+    cart.innerHTML = orders.length;
+    localStorage.setItem('orders', JSON.stringify(orders));
+    localStorage.setItem('total', total);
+    pshoppingCart();
+}
