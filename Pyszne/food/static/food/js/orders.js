@@ -39,7 +39,7 @@ function pshoppingCart(){
     var cartSize = orders.length;
     pcart.innerHTML = '';
     for ( let i=0; i < cartSize; i++){
-        butto = '<button onclick="removePizza(' + i + ')">Usuń</button>';
+        butto = '<div class="del" onclick="removePizza(' + i + ')" style="position: relative">Usuń</div>';
         pcart.innerHTML += '<li>' + orders[i][0] + orders[i][1] + ': ' + orders[i][2] + ' zł' + butto + '</li>';
 
     }

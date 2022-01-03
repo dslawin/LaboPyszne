@@ -6,6 +6,37 @@
 
 {% block content %}
 
+    <div class="container-fluid m-4">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h2>Zamównienie</h2>
+                <div class="row">
+                    <div class="col-md-3" id="nazwa">
+                        <h3>Nazwa</h3>
+                    </div>
+                    <div class="col-md-3" id="rozmiar">
+                        <h3>Rozmiar</h3>
+                    </div>
+                    <div class="col-md-3" id="cena">
+                        <h3>Cena</h3>
+                    </div>
+                </div>
+                <h2 id="total">Razem:</h2>
 
+            </div>
+            <div class="col-md-1" id="usun">
+
+            </div>
+            <div class="col-md-5 mt-4">
+                <h2 class="mb-4">Uwagi</h2>
+                <textarea name="uwagi" id="uwagi" cols="40" rows="5"></textarea>
+                <div class="ml-auto m-4">
+                    <button type="submit" class="btn-success" onclick="order()">Zamów</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="{% static 'food/js/cart.js' %}"></script>
 
 {% endblock %}

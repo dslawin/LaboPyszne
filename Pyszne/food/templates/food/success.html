@@ -1,0 +1,18 @@
+{% extends 'food/base.html' %}
+
+{% load static %}
+
+{% block title %}Success{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+
+        <h2>Otrzymaliśmy twoje zamówienie</h2>
+        <h3>Zamówiłeś/aś:</h3>
+        <h3>{{ order }}</h3>
+        <h3>Jeśli chcesz zmodyfikować złożone zamówienie zadzwoń na infolinię.</h3>
+        <h3>+11 11 11 11 11 11 11 11</h3>
+    </div>
+
+
+{% endblock %}

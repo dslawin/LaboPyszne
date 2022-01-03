@@ -9,7 +9,7 @@ function addBurger(bid){
     var size, price;
     if(pri[0].checked){
         price = pri[0].value;
-        size = 'Średnia';
+        size = 'Normalny';
     }
 
     var orders = JSON.parse(localStorage.getItem('orders'));
@@ -38,7 +38,7 @@ function bshoppingCart(){
     var cartSize = orders.length;
     bcart.innerHTML = '';
     for ( let i=0; i < cartSize; i++){
-        butto = '<button onclick="removeBurger(' + i + ')">Usuń</button>';
+        butto = '<div class="del" onclick="removeBurger(' + i + ')" style="position: relative">Usuń</div>';
         bcart.innerHTML += '<li>' + orders[i][0] + orders[i][1] + ': ' + orders[i][2] + ' zł' + butto + '</li>';
     }
     btotal.innerHTML = 'Razem: ' + total + ' zł';

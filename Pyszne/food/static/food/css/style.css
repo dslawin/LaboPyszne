@@ -37,8 +37,6 @@
 
 .del{
     position: absolute;
-    top: 80px;
-    right: 50px;
     background-color:darkred ;
     color: white;
     width: 40px;
