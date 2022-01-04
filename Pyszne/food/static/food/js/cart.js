@@ -44,16 +44,20 @@ var note = document.querySelector("#uwagi");
 function order(){
     var msg = note.value;
     var orders = localStorage.getItem('orders')
+    var total = localStorage.getItem('total')
     var ur = '/koszyk';
     var orderData = {};
     orderData['orders'] = orders;
     orderData['note']= msg;
+    orderData['total']=total;
     $.ajax({
         url: ur,
         type: "POST",
         data: orderData,
         success: function(data){
             window.location.replace('/success')
+            localStorage.setitem('orders', JSON.stringify([]));
+            localStorage.setItem('total', 0);
 
     }
 

@@ -9,4 +9,7 @@ urlpatterns = [
     path('burger', views.burger,name='burger'),
     path('koszyk', views.koszyk,name='koszyk'),
     path('success', views.success,name='success'),
+    path('signup', views.signup,name='signup'),
+    path('login', views.logIn,name='login'),
+    path('logout', views.logOut,name='logout'),
 ]
